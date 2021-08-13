@@ -1,0 +1,6 @@
+(* requires: [n >= 0] *) (* <-- Specification comment documenting the precondition *)
+let rec fact n = 
+	if n = 0 then 1
+	else n * fact (n - 1)
+
+

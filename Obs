@@ -1,0 +1,118 @@
+
+**OBS: The <let> definition by itself is not an expression ( Ex: We can't (let z = 1) + 2;; )
+
+Identifier = Variable
+Type safe !=  Static typing
+ + Type safe =  have means of checking types at runtime to make sure they're the right thing.
+	(Type safety means not being allowed to interpret a chunk of memory holding something of type A as something of type B)
+
+ + Static type = variable types are known at compile time.
+
+-------
+
+ + Syntax = how do we write code ina specific programming language.
+ + Semantics = what the code we have written actually means.
+
+-------
+ -> These two functions should be identical:
+
+ 	I.  let f x = x * x
+ 	II. let f y = y * y
+ 		
+ -> According to the Principle of Name Irrelevance, these two expressions should be identical:
+
+	I.  let x = 6 in x
+	II. let y = 6 in y	(Equivalent up to renaming of variables)
+
+ -> Therefore, the following two expressions, which have the above expressions embedded in them, should be identical:
+ 	
+ 	I.  let x = 5 in (let x = 6 in x) + x
+ 	II. let x = 5 in (let y = 6 in y) + x
+
+ 	
+ -> Seems like a identifier (variable) can mutate...
+ 	
+ 	# let x = 1;;
+ 	# let x = 2;;
+ 	# x;;
+ -> But really it's just nested scopes:
+ 	
+ 	# let x = 1 in 
+ 	#	let x = 2 in
+ 	#		x (-> Which piece of memory does name mean? --> Innermost scope <--, as you would expect.)
+ 
+ -> (! IMPORTANT !) So we're not really mutating the identifier "x", we're just allocating a new piece of memory that we're going refer to as the same name. This proccess is called "shadowing".
+ 
+ -> "shadowing" proof:
+ 	
+ 	# let x = 10;; ~in~
+ 	# let f y = x + y;; ~in~
+ 	# f 0;;
+ 	# < : int = 10 >
+ 	# let x = 1;; ~in~
+ 	# f 0;;
+ 	# < : int = 10 >	(This is the proof. See how the identifier did not mutate at all.)
+		 	
+! We APPLY a function rather than CALL a function ! 
+
+-----------------------------------------------------------------
+
+ -> These two statements:
+
+ 	# I.  let f = fun x -> x + 1
+ 	# II. let f x = x + 1		(These functions are semantically equivalent )
+ 	
+ -> Latter one is syntactic sugar:
+ 	* not necessary
+ 	* makes language "sweeter"
+ 	
+ -> How top-level OCaml evaluates II. :
+
+ 	# let f x = x + 1;; ( same as let f = fun x -> x + 1;; )
+ 	# f 1;;
+ 	# evaluates to ( I. fun x -> x + 1) 1 (* We call I. an anonymous function *)
+ 	# evaluates to (1 + 1)
+ 	# evaluates to 2
+ 	
+ -> Difference among Method and Function and Procedure:
+ 	
+ 	# Method has a receiver that is usually accesed with a keyword like this or self
+ 	(Whereas a function has not.)
+ 	# Procedures do not return any meaningful value(return void or None depending the language you use)
+
+-----------------------------------------------------------------
+
+ -> Recursive function definition
+ 	*Must explicitly state that function is recursive:
+ 		
+ 		# let rec f...
+ 
+ -> Call stack = stack data structure that stores information about the active subroutines of a computer program. 
+ 
+ -> Heap memory = used for dynamic memory allocation.
+ -> Stack memory = Data structure that holds information about functions and its variables
+ (fixed memory size! so if you try to allocate a big array... you guessed it... you won't be able to do it! ( use dynamic array for that :D ))
+ 
+ -> You do the following:
+ 	
+ 	# #use "recursive.ml";;
+ 	# fact 10000000000;;
+ 
+ -> You will get a stack overflow error.
+
+-----------------------------------------------------------------
+
+ -> (signed) Integer values are at least 31 bits (x86 platforms) and 63 bits (x64 platforms)
+ 
+ -> Negative values are represented in two's complement notation. 
+ (To convert a binary number to its negative value is to reverse its bit values and add 1)
+ 
+ -> The processor stores data in reverse-byte sequence, i.e., a low-order byte is stored in a low memory address and a high-order byte in high memory address.
+ 
+ -> There are two kinds of memory addresses:
+ 	* Absolute address = a direct reference of specific location.
+ 	* Segment address (or offset) = starting address of a memory segment with the offset value.
+ 
+ -> Inlining = taking a function and expanding it from its definition. (It's sometimes a performance win, because it avoids the overhead of an extra function call. But sometimes it can lead to code bloating)
+ 
+ -> Code bloating = production of code that is perceived as unnecessarily long, slow, or otherwise wasteful of resources.
