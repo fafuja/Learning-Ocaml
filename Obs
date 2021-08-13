@@ -116,3 +116,6 @@ Type safe !=  Static typing
  -> Inlining = taking a function and expanding it from its definition. (It's sometimes a performance win, because it avoids the overhead of an extra function call. But sometimes it can lead to code bloating)
  
  -> Code bloating = production of code that is perceived as unnecessarily long, slow, or otherwise wasteful of resources.
+ 
+-----------------------------------------------------------------
+ -> Polymorphism, which is where the compiler doesn't have a fully known type for a function at compile time, might have an impact on performance.
