@@ -118,4 +118,15 @@ Type safe !=  Static typing
  -> Code bloating = production of code that is perceived as unnecessarily long, slow, or otherwise wasteful of resources.
  
 -----------------------------------------------------------------
+
  -> Polymorphism, which is where the compiler doesn't have a fully known type for a function at compile time, might have an impact on performance.
+ 
+-----------------------------------------------------------------
+ -> These two statements are semancically equivalent too:
+ 	
+ 	I.  (fun x = x + 1) 2;;
+ 	II. let x = 2 in x + 1;;
+ 	
+-----------------------------------------------------------------
+ 
+ -> "Anonymous functions" are also called "Lambda expressions".
