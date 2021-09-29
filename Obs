@@ -124,7 +124,7 @@ Type safe !=  Static typing
 -----------------------------------------------------------------
  -> These two statements are semancically equivalent too:
  	
- 	I.  (fun x = x + 1) 2;;
+ 	I.  (fun x -> x + 1) 2;;
  	II. let x = 2 in x + 1;;
  
 -----------------------------------------------------------------
@@ -140,3 +140,21 @@ Type safe !=  Static typing
  -> Computers use taylor series to calculate logarithms.
  -> In Python, mutable objects are passed to functions by reference, immutable objects are passed by value.
  -> "\x" in python means the next two digits are interpreted as hex digits.
+ -> Conditional statement can also be called an implication.
+ -> Dynamic instruction count is the actual number of instructions executed by the CPU for a specific program execution.
+ -> Object code is the product of a compiler (Object files can in turn be linked to form an executable file or library)
+ -> The most important kindof static semantics is probably type checking.
+ -> REPL = read-eval-print-loop
+ -> We apply a function rather than call it.
+ -> All directives begin with the # character in OCaml
+ -> Primary task of computation in a functional language is to evaluate an expression to a value(a value is an expression for which there is no computation remaining to be performed).
+ (All values are expressions, but not all expressions are values. Examples of values: 2, true, "yay!")
+ -> assert true;; # output.: - : unit = ()
+ -> EBP register contains the base address of the function's frame
+ -> "let x = 4 in x;;" this will evaluate to an output (Let expression)
+ -> (let x = 5) + 1;; //output// Error: Syntax error: operator expected. (let x = 5 not an expression)
+ -> (let x = 5 in x) + 1;; //output// - : int = 6
+ ->  let x = 5 in (let x = 3 in x) + x;; (shadowing)
+ -> Every Let definition is effectively a nested let expression.
+ -> Unboxed type = not allocated on the heap memory.
+ -> Anonymous functions are also called lambda expressions.
