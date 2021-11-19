@@ -158,3 +158,12 @@ Type safe !=  Static typing
  -> Every Let definition is effectively a nested let expression.
  -> Unboxed type = not allocated on the heap memory.
  -> Anonymous functions are also called lambda expressions.
+
+---------------------------------------------------------------------
+ -> Concepts vs Abstract type(not abstract data types):
+
+As generics in Java and C# have some similarities to C++'s templates, the role of concepts there is played by interfaces. However, there is one important difference between concepts and interfaces: when a template parameter is required to implement a particular interface, the matching type can only be a class that implements (explicitly) that interface. Concepts bring more flexibility because they can be satisfied in two ways:
+
+explicitly defined as satisfied by using a concept map (defined separately to the type itself, unlike interfaces)
+implicitly defined for "auto concepts", which can be used also for built in types and other types that were not predestined for this use.
+

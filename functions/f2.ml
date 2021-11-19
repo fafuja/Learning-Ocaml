@@ -34,3 +34,35 @@ let add = fun x -> (fun y -> x + y)
 
 (* So add is really a function that takes an argument x and returns a function (fun y -> x+y).
 Which leads to a deep truth...  *)
+
+(* Every multi-argument function in Ocaml is really 
+just a chain of single-argument functions *)
+
+(* "fun x y z -> e" becomes "fun x -> (fun y -> (fun z -> e) )" *) 
+
+(* Function associativity *)
+
+let f x1 x2 ... xn = e (* semantically equivalent to *)
+let f =
+  fun x1 ->
+    (fun x2 ->
+       (...
+          (fun xn -> e)...))
+
+(* Every OCaml function takes exactly one argument. *)
+
+(* Function types are right associative: 
+    -> The type of such a function:
+        t1 -> t2 -> t3 -> t4
+
+    ->  really means the same as:
+        t1 -> (t2 -> (t3 -> t4)))
+*)
+(* Function application, on the other hand, is left associative: 
+
+      " e1 e2 e3 e4 " really means the same as
+      "((e1 e2) e3) e4"
+
+      The intuition here is that the left-most expression 
+      grabs the next expression to its right as its single argument.
+*)
