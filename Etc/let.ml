@@ -29,7 +29,7 @@ let z = 5 in (* I. *) z + (let z = 6 in (* I. *) z) (* This will evaluate to 11 
 
 (* --------------------------------------------- *)
 
-let z = 42 in (* w is not meaningful here *) z + (let w = "3110" in int_of_string w (* w is meaningfull here *))
+let z = 42 in (* w is not meaningful here *) z + (let w = "3110" in int_of_string w (* w is meaningful here *))
 
 let x = 5 in (let y = 6 in y) + x;;
 

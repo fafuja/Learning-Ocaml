@@ -167,3 +167,25 @@ As generics in Java and C# have some similarities to C++'s templates, the role o
 explicitly defined as satisfied by using a concept map (defined separately to the type itself, unlike interfaces)
 implicitly defined for "auto concepts", which can be used also for built in types and other types that were not predestined for this use.
 
+---------------------------------------------------------------------
+
+Is there any way to do intersection non-determinicticly? Only indirectly.
+(First you do the two complements, then you do the union)
+complement of a Deterministic machine = change toggle end-states with initial-states.
+
+-> Non-determinism do not mix well with intersection.
+-> Non-determinism mix well with OR's not with AND's
+-> Reghular expressions is another way of describing the sets that finite-state-machines
+can accept.
+-> Anything that requires counting or arithmetic or more than finite storage, finite
+state machines cant do it.
+-> Pumping lemma is used to show or exhibit or prove that a set is not acceptable by 
+any finite state machine.
+-> Regular sets are called regular because if you have a regular set, you can always pump it
+up at regular intervals and get other things in the set
+-> Regular sets are linear in some way.
+
+-> If you have a set that is accepted by a finite state machine, it has a certain property:
+It can be pumped up somehow
+-> If you can show a set does not have that property, that pumping property, then it 
+couldn't possibly have come from a finite state machine.
